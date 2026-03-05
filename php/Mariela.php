@@ -1,18 +1,32 @@
 <?php
-if(!empty($_POST['btn_entrar'])) {
-    if(empty($_POST['usuario']) || empty($_POST['contrasena'])) {
-        echo '<div class="alert alert-danger" role="alert">Los Campos Estan Vacios</div>';
+if (!empty($_POST['btn_entrar'])) {
+
+    if (empty($_POST['usuario']) || empty($_POST['contrasena'])) {
+
+        echo '<div class="alert alert-danger" role="alert">Los campos están vacíos</div>';
+
     } else {
-        $usuario=$_POST['usuario'];
-        $password=$_POST['contrasena'];
-        $sql=$conexion->query("select * from usuario where usuario='$usuario' and password='$password' ");
-        if($datos=$sql->fetch_object()) {
-            header("location:inicio.php"); //aqui va la pagina despues del login
+
+        $usuario = trim($_POST['usuario']);
+        $password = trim($_POST['contrasena']);
+
+        $sql = $conexion->query("SELECT * FROM usuario WHERE usuario='$usuario'");
+
+        if ($datos = $sql->fetch_object()) {
+
+            if ($password == $datos->password) {
+                header("Location: inicio.php");
+                exit();
+
+            } else {
+
+                echo '<div class="alert alert-danger" role="alert">Contraseña incorrecta</div>';
+            }
+
         } else {
-            echo '<div class="alert alert-danger" role="alert">ACCESO DENEGADO!!</div>';
+
+            echo '<div class="alert alert-danger" role="alert">Usuario no encontrado</div>';
         }
     }
-
 }
-
 ?>
