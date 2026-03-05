@@ -12,34 +12,36 @@ if (mysqli_connect_errno()) {
 echo mysqli_connect_errno();
 exit();
 } else {
-echo ("Conexión exitosa!!!");
+//echo ("Conexión exitosa!!!");
 }
 
-if (empty($_POST['usuario']) || empty($_POST['contrasena'])) {
+if(isset($_POST['btn_entrar'])){
+    if (empty($_POST['usuario']) || empty($_POST['contrasena'])) {
 
-    echo '<div class="alert alert-danger" role="alert">Los campos están vacíos</div>';
-
-} else {
-
-    $usuario = trim($_POST['usuario']);
-    $password = trim($_POST['contrasena']);
-
-    $sql = $conexion->query("SELECT * FROM usuarios WHERE usuario='$usuario'");
-
-    if ($datos = $sql->fetch_object()) {
-
-        if ($password == $datos->password) {
-            header("Location: inicioindex.php");
-            exit();
-
-        } else {
-
-            echo '<div class="alert alert-danger" role="alert">Contraseña incorrecta</div>';
-        }
+        echo '<div class="alert alert-danger" role="alert">Los campos están vacíos</div>';
 
     } else {
 
-        echo '<div class="alert alert-danger" role="alert">Usuario no encontrado</div>';
+        $usuario = trim($_POST['usuario']);
+        $password = trim($_POST['contrasena']);
+
+        $sql = mysqli_query($link, "SELECT * FROM usuarios WHERE usuario='$usuario'");
+
+        if ($datos = mysqli_fetch_object($sql)) {
+
+            if ($password == $datos->password) {
+                header("Location: inicioindex.php");
+            exit();
+
+            } else {
+
+                echo '<div class="alert alert-danger" role="alert">Contraseña incorrecta</div>';
+            }
+
+        } else {
+
+            echo '<div class="alert alert-danger" role="alert">Usuario no encontrado</div>';
+        }
     }
 }
 ?>
@@ -124,7 +126,7 @@ a{
         <p class="text-muted">Inicia sesión en tu cuenta</p>
     </div>
 
-    <form action="../php/Mariela.php" method="POST">
+    <form action="" method="POST">
 
        
         <div class="input-group mb-3">
@@ -171,17 +173,6 @@ a{
     </form>
 
 </div>
-
-<?php
-
-session_start();
-
-if(!isset($_SESSION['usuario'])){
-    header("Location: loginindex.php");
-    exit();
-}
-
-?>
 
 <hr>
     <footer>
