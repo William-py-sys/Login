@@ -11,6 +11,4 @@ $link = mysqli_connect(DB_HOST, DB_USER, DB_PASSWORD, DB_DATABASE);
 if (mysqli_connect_errno()) {
 echo mysqli_connect_errno();
 exit();
-} else {
-echo ("Conexión exitosa!!!");
 }
