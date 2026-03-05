@@ -1,4 +1,6 @@
 <?php
+include_once('../base_de_datos/conexion.php');
+
 if (!empty($_POST['btn_entrar'])) {
 
     if (empty($_POST['usuario']) || empty($_POST['contrasena'])) {

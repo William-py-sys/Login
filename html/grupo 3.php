@@ -78,7 +78,7 @@ a{
         <p class="text-muted">Inicia sesión en tu cuenta</p>
     </div>
 
-    <form action="" method="POST">
+    <form action="../php/Mariela.php" method="POST">
 
        
         <div class="input-group mb-3">
