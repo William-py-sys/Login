@@ -10,7 +10,7 @@ if (!empty($_POST['btn_entrar'])) {
         $usuario = trim($_POST['usuario']);
         $password = trim($_POST['contrasena']);
 
-        $sql = $conexion->query("SELECT * FROM usuario WHERE usuario='$usuario'");
+        $sql = $conexion->query("SELECT * FROM usuarios WHERE usuario='$usuario'");
 
         if ($datos = $sql->fetch_object()) {
 
