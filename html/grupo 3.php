@@ -24,7 +24,11 @@
         <p class="">Inicia sesión en tu cuenta</p>
     </div>
 
+<<<<<<< HEAD:html/grupo 3.html
     <form action="../php/login.php" method="POST" autocomplete="on">
+=======
+    <form action="../php/Mariela.php" method="POST">
+>>>>>>> 65c1a1653590db520eeabe587ef4422087962ad1:html/grupo 3.php
 
        
         <div class="">
