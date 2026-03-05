@@ -1,5 +1,5 @@
 <?php
-
+print_r($_POST);
 include_once("configuracion.php");
 
 // Link conexion con variables
