@@ -1,11 +1,5 @@
-<?php
-session_start();
 
-if(!isset($_SESSION['usuario'])){
-    header("Location: loginindex.php");
-    exit();
-}
-?>
+
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -65,6 +59,10 @@ body{
 </style>
 </head>
 <body>
+
+<div class="alert alert-success" role="alert">
+  Usted inicio seccion correctamente <a href="#" class="alert-link">
+</div>
 
 <div class="welcome-box">
 

@@ -2,6 +2,7 @@
 include_once('../base_de_datos/configuracion.php');
 include_once('../base_de_datos/conexion.php');
 
+
 if (isset($_POST["entrar"])) {
 
     if (empty($_POST["user"]) || empty($_POST["pass"])) {
@@ -19,12 +20,10 @@ if (isset($_POST["entrar"])) {
         if ($datos = mysqli_fetch_object($resultado)) {
 
             if ($password == $datos->password) {
-                
-                echo "<div class='alert alert-success'>Inicio de sesión exitoso</div>";
+                $_SESSION['usuario'] = $datos->usuario;
 
-                $sql = "SELECT * FROM usuario WHERE usuario='$usuario'";
-                
                 header("Location: ../php/index.php");
+                exit();
 
             } else {
 
