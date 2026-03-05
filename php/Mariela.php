@@ -15,7 +15,7 @@ if (!empty($_POST['btn_entrar'])) {
         if ($datos = $sql->fetch_object()) {
 
             if ($password == $datos->password) {
-                header("Location: inicio.php");
+                header("Location: inicioindex.php");
                 exit();
 
             } else {
