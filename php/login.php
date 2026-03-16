@@ -22,7 +22,7 @@ if (isset($_POST["entrar"])) {
             if ($password == $datos->password) {
                 $_SESSION['usuario'] = $datos->usuario;
 
-                header("Location: ../php/index.php");
+                header("Location: ../base_de_datos/CRT.php");
                 exit();
 
             } else {
@@ -38,6 +38,6 @@ if (isset($_POST["entrar"])) {
     }
 }
 
-include('./Login/html/grupo.html')
+include_once('../Login/base_de_datos/CRT.php');
 
 ?>
