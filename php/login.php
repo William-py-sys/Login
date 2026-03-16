@@ -38,6 +38,6 @@ if (isset($_POST["entrar"])) {
     }
 }
 
-include_once('../html/grupo 3.html');
+include('./Login/html/grupo.html')
 
 ?>
